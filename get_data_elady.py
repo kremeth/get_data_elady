@@ -17,6 +17,7 @@ def home():
 @app.route('/50')
 def fifty():
     # Get the csv
+    print(1)
     r = requests.get('https://dropshipping.elady.com/dropshipping/api_item.php?login=drapi4749sb&password=vtx9nE7VnHcP')
 
     # Turn the content into a pandas dataframe
