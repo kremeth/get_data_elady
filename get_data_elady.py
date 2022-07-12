@@ -8,11 +8,6 @@ import flask
 
 app = flask.Flask(__name__)
 
-
-# Filter out the items that are not BAGS
-data = data[data['category'] == 'BAGS']
-data.reset_index(inplace=True, drop=True)
-
 # Get the first 50 items
 @app.route('/')
 @app.route('/home')
@@ -26,6 +21,9 @@ def fifty():
 
     # Turn the content into a pandas dataframe
     data = pd.read_csv(io.StringIO(r.content.decode('utf-8')))
+    # Filter out the items that are not BAGS
+    data = data[data['category'] == 'BAGS']
+    data.reset_index(inplace=True, drop=True)
     return data.iloc[:50, :]
 
 if __name__ == "__main__":
