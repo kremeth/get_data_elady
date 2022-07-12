@@ -29,7 +29,7 @@ def fifty():
     # Filter out the items that are not BAGS
     data = data[data['category'] == 'BAGS']
     data.reset_index(inplace=True, drop=True)
-    return data.to_json(orient="records")
+    return data.iloc[:900, :].to_json(orient="records")
 
 if __name__ == "__main__":
     app.secret_key = 'ItIsASecret'
