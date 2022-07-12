@@ -19,3 +19,4 @@ psycopg2-binary
 ordereddict
 PyMySQL==1.0.2
 requests==2.27.1
+numpy==1.19.2
